@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Search</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="htts://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: cursive;
+            }
+            .flex-container {
+                display: flex;
+            }
+            
+            .flex-child {
+                flex: 1;
+                text-align:center;
+            }  
+            
+            .flex-child:first-child {
+                margin-right: 20px;
+            } 
+            .result1{
+                margin-top:10px;
+            }
+            .containor{
+                width: 100%;
+                height: 225vh;
+                background: lightyellow;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 10px;
+                padding-top: 20px;
+            }
+            .product:hover{
+                transform:scale(1.07);
+                box-shadow: -5px 5px 10px 10px rgba(14, 23, 35, 0.05);
+            }
+            .product{
+                width: 90%;
+                height: 250px;
+                border: 3px solid goldenrod;
+                display: flex;
+                border-radius: 5px;
+                margin: 10px auto 10px auto;
+            }
+            .gallery{
+                flex-basis: 35%;
+                margin-left:auto;
+                margin-right:auto;
+                background:#fff;
+            }
+            .gallery img{
+                display: block;
+                box-shadow: -5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+                height:100%;
+                
+            }
+            .gallery img:hover{
+                transform: scale(1.05);
+                box-shadow: -10px 10px 20px 20px rgba(0, 0, 0, 0.1);
+            }
+            .details{
+                flex-basis: 65%; 
+                background: #fff;
+                padding: 10px;
+                padding-left: 15px;
+                box-shadow: -5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+                text-align: left;
+            }
+
+            .details h3{
+                font-size: 20px;
+                color: #333;
+                
+            }
+            .details h4{
+                font-size: 17px;
+                color: #555;
+                font-weight: 600;
+                margin-top: 10px;
+            }
+            .details a{
+                display: flex;
+            }
+            .viewbutton{
+                margin-top: 80px;
+                text-decoration: none;
+                color:#fff;
+                background: #553ff0;
+                width: 90%;
+                padding: 10px;
+                border-radius: 30px;
+                border: 0;
+                outline: 0;
+                box-shadow: 0 10px 10px rgba(85, 63, 240, 0.25);
+                cursor: pointer;
+            }
+            .viewbutton a{
+                font-size: 20px;
+            }
+            .details a{
+                text-decoration:none;
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <form action=" " method="post">
+            {% csrf_token %}
+            <input type="text" name="Item" />
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div class="result1">
+            <div class="flex-container">
+
+                <div class="flex-child">
+                    <h1>Amazon<h1>
+                    <div class="containor" >
+                        <div class="product" >
+                            <div class="gallery">
+                                <img src="{{aDict.apic.0}}" alt="Hello">
+                            </div>
+                            <div class="details">
+                                <h3>{{aDict.atext.0}}</h3>
+                                <h4>₹ {{aDict.aprice.0}}</h4>
+                                <div class="viewbutton">
+                                    <a href="{{aDict.alink.0}}" target="_blank">View Product here</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="product" >
+                            <div class="gallery">
+                                <img src="{{aDict.apic.1}}" alt="Hello">
+                            </div>
+                            <div class="details">
+                                <h3>{{aDict.atext.1}}</h3>
+                                <h4>₹ {{aDict.aprice.1}}</h4>
+                                <div class="viewbutton"><a href="{{aDict.alink.1}}" target="_blank">View Product here</a></div>
+                            </div>
+                        </div>
+
+                        
+                        
+                        <div class="product" >
+                            <div class="gallery">
+                                <img src="{{aDict.apic.2}}" alt="Hello">
+                            </div>
+                            <div class="details">
+                                <h3>{{aDict.atext.2}}</h3>
+                                <h4>₹ {{aDict.aprice.2}}</h4>
+                                <div class="viewbutton"><a href="{{aDict.alink.2}}" target="_blank">View Product here</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class="product" >
+                            <div class="gallery">
+                                <img src="{{aDict.apic.3}}" alt="Hello">
+                            </div>
+                            <div class="details">
+                                <h3>{{aDict.atext.3}}</h3>
+                                <h4>₹ {{aDict.aprice.3}}</h4>
+                                <div class="viewbutton"><a href="{{aDict.alink.3}}" target="_blank">View Product here</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class="product" >
+                            <div class="gallery">
+                                <img src="{{aDict.apic.4}}" alt="Hello">
+                            </div>
+                            <div class="details">
+                                <h3>{{aDict.atext.4}}</h3>
+                                <h4>₹ {{aDict.aprice.4}}</h4>
+                                <div class="viewbutton"><a href="{{aDict.alink.4}}" target="_blank">View Product here</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+                
+            <div class="flex-child">
+                <h1>Flipkart</h1>
+
+                <div class="containor" >
+                    <div class="product" >
+                        <div class="gallery">
+                            <img src="{{fDict.fpic.0}}" alt="Hello">
+                        </div>
+                        <div class="details">
+                            <h3>{{fDict.ftext.0}}</h3>
+                            <h4>{{fDict.fprice.0}}</h4>
+                            <div class="viewbutton"><a href="{{fDict.flink.0}}" target="_blank">View Product here</a></div>
+                        </div>
+                    </div>
+
+
+                    <div class="product" >
+                        <div class="gallery">
+                            <img src="{{fDict.fpic.1}}" alt="Hello">
+                        </div>
+                        <div class="details">
+                            <h3>{{fDict.ftext.1}}</h3>
+                            <h4>{{fDict.fprice.1}}</h4>
+                            <div class="viewbutton"><a href="{{fDict.flink.1}}" target="_blank">View Product here</a></div>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <div class="product" >
+                        <div class="gallery">
+                            <img src="{{fDict.fpic.2}}" alt="Hello">
+                        </div>
+                        <div class="details">
+                            <h3>{{fDict.ftext.2}}</h3>
+                            <h4>{{fDict.fprice.2}}</h4>
+                            <div class="viewbutton"><a href="{{fDict.flink.2}}" target="_blank">View Product here</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="product" >
+                        <div class="gallery">
+                            <img src="{{fDict.fpic.3}}" alt="Hello">
+                        </div>
+                        <div class="details">
+                            <h3>{{fDict.ftext.3}}</h3>
+                            <h4>{{fDict.fprice.3}}</h4>
+                            <div class="viewbutton"><a href="{{fDict.flink.3}}" target="_blank">View Product here</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="product" >
+                        <div class="gallery">
+                            <img src="{{fDict.fpic.4}}" alt="Hello">
+                        </div>
+                        <div class="details">
+                            <h3>{{fDict.ftext.4}}</h3>
+                            <h4>{{fDict.fprice.4}}</h4>
+                            <div class="viewbutton"><a href="{{fDict.flink.4}}" target="_blank">View Product here</a></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                
+              
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
